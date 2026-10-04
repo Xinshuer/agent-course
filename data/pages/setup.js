@@ -23,8 +23,8 @@ COURSE.pages.setup = {
     { t: "h", zh: "3. 创建两个虚拟环境", en: "3. Create the two virtual environments" },
     {
       t: "p",
-      zh: "先装好 Python 3.12（python.org 的 Windows 安装包会同时装上 `py` 启动器）。然后在**项目文件夹**里打开 PowerShell，运行下面几行。装 `.venv` 要下载不少包，需要几分钟：",
-      en: "Install Python 3.12 first (the Windows installer from python.org also installs the `py` launcher). Then open PowerShell in the **project folder** and run the lines below. `.venv` downloads quite a few packages, so give it a few minutes:",
+      zh: "两个环境都要你自己建，仓库里没有。装 `.venv` 要下载不少包，需要几分钟。\n\n**Windows**：先装好 Python 3.12（python.org 的安装包会同时装上 `py` 启动器），然后在**项目文件夹**里打开 PowerShell，运行：",
+      en: "You create both environments yourself; they are not in the repository. `.venv` downloads quite a few packages, so give it a few minutes.\n\n**Windows**: install Python 3.12 first (the python.org installer also installs the `py` launcher), then open PowerShell in the **project folder** and run:",
     },
     {
       t: "code",
@@ -36,9 +36,23 @@ COURSE.pages.setup = {
       },
     },
     {
+      t: "p",
+      zh: "**Linux / macOS**：在**项目文件夹**里打开终端，运行：",
+      en: "**Linux / macOS**: open a terminal in the **project folder** and run:",
+    },
+    {
+      t: "code",
+      lang: "bash",
+      file: { zh: "终端（Linux / macOS）", en: "Terminal (Linux / macOS)" },
+      code: {
+        zh: "# 先确认有 Python 3.12，没有就安装：\n#   Ubuntu / Debian：sudo apt install python3.12 python3.12-venv\n#   Fedora：         sudo dnf install python3.12\n#   macOS：          brew install python@3.12\npython3.12 --version\n\npython3.12 -m venv .venv\n.venv/bin/python -m pip install -r requirements.txt\n\n# 51–58 节（CrewAI）用的第二个环境\npython3.12 -m venv .venv-crewai\n.venv-crewai/bin/python -m pip install -r requirements-crewai.txt\n\n# 检查：两个都应该显示 No broken requirements found.\n.venv/bin/python -m pip check\n.venv-crewai/bin/python -m pip check",
+        en: "# check that Python 3.12 is there; if not, install it:\n#   Ubuntu / Debian: sudo apt install python3.12 python3.12-venv\n#   Fedora:          sudo dnf install python3.12\n#   macOS:           brew install python@3.12\npython3.12 --version\n\npython3.12 -m venv .venv\n.venv/bin/python -m pip install -r requirements.txt\n\n# the second environment, for lessons 51–58 (CrewAI)\npython3.12 -m venv .venv-crewai\n.venv-crewai/bin/python -m pip install -r requirements-crewai.txt\n\n# check: both should print No broken requirements found.\n.venv/bin/python -m pip check\n.venv-crewai/bin/python -m pip check",
+      },
+    },
+    {
       t: "tip",
-      zh: "macOS / Linux：把 `py -3.12` 换成 `python3.12`，把 `.venv\\Scripts\\python.exe` 换成 `.venv/bin/python`。讲义里其他命令也照这个规律换。",
-      en: "macOS / Linux: use `python3.12` instead of `py -3.12`, and `.venv/bin/python` instead of `.venv\\Scripts\\python.exe`. Translate the other commands in the notes the same way.",
+      zh: "Linux / macOS 上要注意：\n- 用 `python3.12` 建环境，不要用 `python3`：系统默认的 `python3` 可能是别的版本。\n- 用完整路径 `.venv/bin/python -m pip` 安装，不要先 `source .venv/bin/activate` 再直接敲 `pip`：激活后忘了退出，两个 requirements 就会装进同一个环境，CrewAI 和 AgentScope 会因为 `json-repair` 的版本冲突。\n- `.venv` 和 `.venv-crewai` 以 `.` 开头，是隐藏文件夹，用 `ls -a` 才能看到。",
+      en: "On Linux / macOS:\n- Create the environments with `python3.12`, not `python3`: the system `python3` may be another version.\n- Install with the full path `.venv/bin/python -m pip` instead of `source .venv/bin/activate` followed by plain `pip`: if you forget to deactivate, both requirements files end up in one environment and CrewAI and AgentScope clash over `json-repair`.\n- `.venv` and `.venv-crewai` start with `.`, so they are hidden; use `ls -a` to see them.",
     },
 
     { t: "h", zh: "4. 运行练习文件", en: "4. Running the practice files" },
@@ -55,6 +69,20 @@ COURSE.pages.setup = {
         zh: "cd practice\n& ..\\.venv\\Scripts\\python.exe l06_chat.py\n\n# 51–58 节（CrewAI）用另一个环境\n& ..\\.venv-crewai\\Scripts\\python.exe <文件名>.py",
         en: "cd practice\n& ..\\.venv\\Scripts\\python.exe l06_chat.py\n\n# lessons 51–58 (CrewAI) use the other environment\n& ..\\.venv-crewai\\Scripts\\python.exe <file name>.py",
       },
+    },
+    {
+      t: "code",
+      lang: "bash",
+      file: { zh: "终端（Linux / macOS）", en: "Terminal (Linux / macOS)" },
+      code: {
+        zh: "cd practice\n../.venv/bin/python l06_chat.py\n\n# 51–58 节（CrewAI）用另一个环境\n../.venv-crewai/bin/python <文件名>.py",
+        en: "cd practice\n../.venv/bin/python l06_chat.py\n\n# lessons 51–58 (CrewAI) use the other environment\n../.venv-crewai/bin/python <file name>.py",
+      },
+    },
+    {
+      t: "tip",
+      zh: "讲义里的命令都是 Windows 写法。在 Linux / macOS 上，把 `& ..\\.venv\\Scripts\\python.exe` 换成 `../.venv/bin/python`，`.venv-crewai` 同理；VS Code 里选解释器时选 `.venv/bin/python`。",
+      en: "The commands in the notes are written for Windows. On Linux / macOS, replace `& ..\\.venv\\Scripts\\python.exe` with `../.venv/bin/python` (likewise for `.venv-crewai`), and pick `.venv/bin/python` as the interpreter in VS Code.",
     },
     {
       t: "note",

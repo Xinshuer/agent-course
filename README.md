@@ -34,7 +34,9 @@ Use the live site above, or open `index.html` locally in Chrome or Edge (double-
 
 ## Running the practice files
 
-First create the two virtual environments (Python 3.12; run in the project folder):
+First create the two virtual environments yourself (they are not in the repository). Use Python 3.12 and run the commands in the project folder.
+
+**Windows (PowerShell):**
 
 ```powershell
 py -3.12 -m venv .venv
@@ -43,16 +45,49 @@ py -3.12 -m venv .venv-crewai
 & .venv-crewai\Scripts\python.exe -m pip install -r requirements-crewai.txt
 ```
 
+**Linux / macOS:**
+
+```bash
+# install Python 3.12 if needed:
+#   Ubuntu / Debian: sudo apt install python3.12 python3.12-venv
+#   Fedora:          sudo dnf install python3.12
+#   macOS:           brew install python@3.12
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+python3.12 -m venv .venv-crewai
+.venv-crewai/bin/python -m pip install -r requirements-crewai.txt
+
+# check: both should print "No broken requirements found."
+.venv/bin/python -m pip check
+.venv-crewai/bin/python -m pip check
+```
+
+Use `python3.12` rather than `python3` (the system default may be another version), and install with the full path `.venv/bin/python -m pip` rather than activating the environment and typing `pip`: that way the two requirements files cannot end up in the same environment, where CrewAI and AgentScope clash over `json-repair`.
+
 Then run exercises from the `practice` folder:
 
 ```powershell
+# Windows
 cd practice
 & ..\.venv\Scripts\python.exe l06_chat.py
-# CrewAI (lessons 51–58)
-& ..\.venv-crewai\Scripts\python.exe l51_xxx_solution.py
+& ..\.venv-crewai\Scripts\python.exe l51_xxx_solution.py   # CrewAI (lessons 51–58)
 ```
 
-The API key is read from the user environment variable `DEEPSEEK_API_KEY` (see `practice/llm.py`); it is never written in code. Set it with `setx DEEPSEEK_API_KEY "your-key"`, then reopen your terminal or VS Code. On macOS / Linux use `python3.12`, `.venv/bin/python` and `export DEEPSEEK_API_KEY=...`. The site's Setup page has the full steps.
+```bash
+# Linux / macOS
+cd practice
+../.venv/bin/python l06_chat.py
+../.venv-crewai/bin/python l51_xxx_solution.py             # CrewAI (lessons 51–58)
+```
+
+The commands in the notes are written for Windows; on Linux / macOS replace `& ..\.venv\Scripts\python.exe` with `../.venv/bin/python`.
+
+The API key is read from the user environment variable `DEEPSEEK_API_KEY` (see `practice/llm.py`); it is never written in code.
+
+- Windows: `setx DEEPSEEK_API_KEY "your-key"`, then reopen your terminal or VS Code.
+- Linux / macOS: `echo 'export DEEPSEEK_API_KEY="your-key"' >> ~/.bashrc` (or `~/.zshrc`), then `source ~/.bashrc`.
+
+The site's Setup page has the full steps.
 
 ## Maintenance commands
 
@@ -108,7 +143,9 @@ The notes were checked against each episode's Bilibili AI subtitles (used only a
 
 ## 运行练习
 
-先创建两个虚拟环境（需要 Python 3.12，在项目文件夹里运行）：
+先自己创建两个虚拟环境（仓库里没有）。用 Python 3.12，在项目文件夹里运行。
+
+**Windows（PowerShell）：**
 
 ```powershell
 py -3.12 -m venv .venv
@@ -117,16 +154,49 @@ py -3.12 -m venv .venv-crewai
 & .venv-crewai\Scripts\python.exe -m pip install -r requirements-crewai.txt
 ```
 
+**Linux / macOS：**
+
+```bash
+# 没有 Python 3.12 的话先安装：
+#   Ubuntu / Debian：sudo apt install python3.12 python3.12-venv
+#   Fedora：         sudo dnf install python3.12
+#   macOS：          brew install python@3.12
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+python3.12 -m venv .venv-crewai
+.venv-crewai/bin/python -m pip install -r requirements-crewai.txt
+
+# 检查：两个都应该显示 "No broken requirements found."
+.venv/bin/python -m pip check
+.venv-crewai/bin/python -m pip check
+```
+
+用 `python3.12` 而不是 `python3` 建环境（系统默认的 `python3` 可能是别的版本）；用完整路径 `.venv/bin/python -m pip` 安装，不要激活环境后直接敲 `pip`。这样两个 requirements 文件就不会装进同一个环境，否则 CrewAI 和 AgentScope 会因为 `json-repair` 的版本冲突。
+
 然后进入 `practice` 运行练习：
 
 ```powershell
+# Windows
 cd practice
 & ..\.venv\Scripts\python.exe l06_chat.py
-# CrewAI（51–58 节）
-& ..\.venv-crewai\Scripts\python.exe l51_xxx_solution.py
+& ..\.venv-crewai\Scripts\python.exe l51_xxx_solution.py   # CrewAI（51–58 节）
 ```
 
-API key 从用户环境变量 `DEEPSEEK_API_KEY` 读取（见 `practice/llm.py`），代码里不写 key。设置方法：`setx DEEPSEEK_API_KEY "你的key"`，设置后重新打开终端或 VS Code。macOS / Linux 用 `python3.12`、`.venv/bin/python` 和 `export DEEPSEEK_API_KEY=...`。详细步骤见网站的「环境准备」页。
+```bash
+# Linux / macOS
+cd practice
+../.venv/bin/python l06_chat.py
+../.venv-crewai/bin/python l51_xxx_solution.py             # CrewAI（51–58 节）
+```
+
+讲义里的命令都是 Windows 写法；在 Linux / macOS 上，把 `& ..\.venv\Scripts\python.exe` 换成 `../.venv/bin/python`。
+
+API key 从用户环境变量 `DEEPSEEK_API_KEY` 读取（见 `practice/llm.py`），代码里不写 key：
+
+- Windows：`setx DEEPSEEK_API_KEY "你的key"`，设置后重新打开终端或 VS Code。
+- Linux / macOS：`echo 'export DEEPSEEK_API_KEY="你的key"' >> ~/.bashrc`（用 zsh 的话写进 `~/.zshrc`），再运行 `source ~/.bashrc`。
+
+详细步骤见网站的「环境准备」页。
 
 ## 维护命令
 
