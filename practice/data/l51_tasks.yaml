@@ -1,0 +1,22 @@
+# 第 51 节：官方模板里的两个 Task（中文版，被 l51_yaml_crew.py 读取）
+# Lesson 51: the two tasks of the official template, in Chinese (read by l51_yaml_crew.py)
+# agent: 后面写的是 @agent 方法的名字。/ "agent:" names an @agent method.
+# {topic}、{current_year} 是占位符，kickoff(inputs={...}) 时才填进去。
+# {topic} and {current_year} are placeholders, filled in at kickoff(inputs={...}).
+
+research_task:
+  description: >
+    对 {topic} 做一次深入的调研，找出所有有趣且相关的信息。
+    注意：今年是 {current_year} 年。
+  expected_output: >
+    一个包含 10 个要点的列表，列出 {topic} 最相关的信息，用中文。
+  agent: researcher
+
+reporting_task:
+  description: >
+    阅读你拿到的上下文，把每个要点扩展成报告里完整的一个小节。
+    确保报告内容详细，包含所有相关的信息。
+  expected_output: >
+    一份完整的中文报告，每个主题各有一个完整的小节。
+    用 Markdown 格式，不要用 ``` 包起来。
+  agent: reporting_analyst

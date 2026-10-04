@@ -1,0 +1,43 @@
+# 第 55 节：营销策划小组的五个任务（被 l55_json_tasks_solution.py 和 l55_json_tasks_todo.py 读取）
+# Lesson 55: the marketing crew's five tasks (read by l55_json_tasks_solution.py and l55_json_tasks_todo.py)
+# {customer_domain} 和 {project_description} 由 kickoff(inputs={...}) 填入。
+# {customer_domain} and {project_description} are filled by kickoff(inputs={...}).
+# 任务的先后顺序由 crew 类里 @task 方法的定义顺序决定。/ The run order follows the @task method order.
+# output_json / output_pydantic 写在 Python 里（见 crew 类），这里的 expected_output 要写清字段名。
+# output_json / output_pydantic are set in Python (see the crew class); expected_output names the fields.
+
+research_task:
+  description: >
+    围绕客户 {customer_domain} 做一次深入调研，分析它的产品和主要竞争对手，尽量找出有价值的相关信息（以最近一两年的情况为准）。
+    我们正在和这家客户合作的项目是：{project_description}
+  expected_output: >
+    一份关于客户产品和竞争对手的完整报告，包括关键数据、用户偏好、市场定位和受众参与度。用中文，不超过 400 字。
+  agent: lead_market_analyst
+
+project_understanding_task:
+  description: >
+    弄清项目「{project_description}」的细节和目标受众。阅读已有的资料，必要时补充更多信息。
+  expected_output: >
+    项目的详细摘要，以及目标受众画像。用中文，不超过 300 字。
+  agent: chief_marketing_strategist
+
+marketing_strategy_task:
+  description: >
+    为客户 {customer_domain} 的项目「{project_description}」制定一份全面的营销战略，要用上前面调研和项目分析的结论。
+  expected_output: >
+    一个 JSON 对象，字段为 name（战略名称）、tactics（战术列表）、channels（渠道列表）、kpis（关键指标列表），列表里的每一项都用中文短句。只输出 JSON。
+  agent: chief_marketing_strategist
+
+campaign_idea_task:
+  description: >
+    为项目「{project_description}」构思有创意的营销活动，要新颖、吸引人，并且和整体营销战略保持一致。
+  expected_output: >
+    5 个活动设想，每个设想附一句简要说明和预期效果。用中文。
+  agent: creative_content_creator
+
+copy_creation_task:
+  description: >
+    根据前面的活动设想，为项目「{project_description}」写一条社交媒体营销文案，要有吸引力、清晰，并且贴合目标受众。
+  expected_output: >
+    一个 JSON 对象，只有两个字段：title（文案标题）和 body（文案正文，不超过 200 字）。只输出 JSON，不要任何解释。
+  agent: creative_content_creator

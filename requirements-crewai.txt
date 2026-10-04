@@ -1,0 +1,8 @@
+# CrewAI environment (.venv-crewai, Python 3.12) - modules 9-10 (lessons 51-58).
+# CrewAI pins versions that clash with AgentScope, so it lives in its own environment.
+# Install (in the project folder): py -3.12 -m venv .venv-crewai
+#   then: .venv-crewai\Scripts\python.exe -m pip install -r requirements-crewai.txt
+crewai==1.15.23
+crewai-tools==1.15.23
+fastapi==0.142.2
+uvicorn==0.54.0

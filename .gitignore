@@ -1,0 +1,19 @@
+# Virtual environments and caches (rebuild with requirements*.txt)
+.venv/
+.venv-crewai/
+.cache/
+__pycache__/
+*.pyc
+
+# Build and check scratch: also holds the episodes' Bilibili AI subtitles (local reference only, not ours to publish)
+build/
+
+# Maintainer-only tool that downloads the episodes' Bilibili AI subtitles (not needed for studying)
+tools/fetch_subtitles.py
+
+# Output produced by running the practice files
+practice/output/
+practice/data/l54_output/
+practice/data/l55_output/
+practice/data/*.db
+practice/l58_poem.txt

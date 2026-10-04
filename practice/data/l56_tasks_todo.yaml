@@ -1,0 +1,43 @@
+# 第 56 节练习（TODO 版）：和 55 节的任务一样，被 l56_human_feedback_todo.py 读取
+# Lesson 56 exercise (TODO version): the lesson-55 tasks, read by l56_human_feedback_todo.py
+# TODO: 给 research_task 和 copy_creation_task 各加一行 human_input: true（和 agent: 对齐，缩进 2 个空格）
+#       Add the line human_input: true to research_task and copy_creation_task (indent 2 spaces, like agent:)
+# 参考答案 / Solution: data/l56_tasks.yaml
+
+research_task:
+  description: >
+    围绕客户 {customer_domain} 做一次深入调研，分析它的产品和主要竞争对手，尽量找出有价值的相关信息（以最近一两年的情况为准）。
+    我们正在和这家客户合作的项目是：{project_description}
+  expected_output: >
+    一份关于客户产品和竞争对手的完整报告，包括关键数据、用户偏好、市场定位和受众参与度。用中文，不超过 400 字。
+  agent: lead_market_analyst
+  # TODO: human_input
+
+project_understanding_task:
+  description: >
+    弄清项目「{project_description}」的细节和目标受众。阅读已有的资料，必要时补充更多信息。
+  expected_output: >
+    项目的详细摘要，以及目标受众画像。用中文，不超过 300 字。
+  agent: chief_marketing_strategist
+
+marketing_strategy_task:
+  description: >
+    为客户 {customer_domain} 的项目「{project_description}」制定一份全面的营销战略，要用上前面调研和项目分析的结论。
+  expected_output: >
+    一个 JSON 对象，字段为 name（战略名称）、tactics（战术列表）、channels（渠道列表）、kpis（关键指标列表），列表里的每一项都用中文短句。只输出 JSON。
+  agent: chief_marketing_strategist
+
+campaign_idea_task:
+  description: >
+    为项目「{project_description}」构思有创意的营销活动，要新颖、吸引人，并且和整体营销战略保持一致。
+  expected_output: >
+    5 个活动设想，每个设想附一句简要说明和预期效果。用中文。
+  agent: creative_content_creator
+
+copy_creation_task:
+  description: >
+    根据前面的活动设想，为项目「{project_description}」写一条社交媒体营销文案，要有吸引力、清晰，并且贴合目标受众。
+  expected_output: >
+    一个 JSON 对象，只有两个字段：title（文案标题）和 body（文案正文，不超过 200 字）。只输出 JSON，不要任何解释。
+  agent: creative_content_creator
+  # TODO: human_input

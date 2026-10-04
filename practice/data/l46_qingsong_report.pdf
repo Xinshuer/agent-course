@@ -1,0 +1,102 @@
+%PDF-1.3
+%‚„œ”
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Kids [ 3 0 R 6 0 R ]
+/Count 2
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [ 0 0 595 842 ]
+/Resources <<
+/Font <<
+/F1 4 0 R
+>>
+>>
+/Contents 5 0 R
+>>
+endobj
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+5 0 obj
+<<
+/Length 435
+>>
+stream
+BT
+/F1 12 Tf
+16 TL
+56 780 Td
+(Qingsong LM Technical Report \(fictional, for practice only\)) Tj
+T* () Tj
+T* (Page 1 - Overview and model sizes) Tj
+T* (Qingsong is an open-source LLM family released by Songguo Lab in March 2025.) Tj
+T* (It comes in three sizes: Qingsong-3B, Qingsong-14B and Qingsong-72B.) Tj
+T* (All sizes share one tokenizer with a vocabulary of 150,000 tokens.) Tj
+T* (The 3B model targets phones and laptops.) Tj
+ET
+endstream
+endobj
+6 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [ 0 0 595 842 ]
+/Resources <<
+/Font <<
+/F1 4 0 R
+>>
+>>
+/Contents 7 0 R
+>>
+endobj
+7 0 obj
+<<
+/Length 334
+>>
+stream
+BT
+/F1 12 Tf
+16 TL
+56 780 Td
+(Page 2 - Training and context length) Tj
+T* (Pre-training used about 6 trillion tokens:) Tj
+T* (45% Chinese, 40% English and 15% code. Data cutoff: October 2024.) Tj
+T* (Every size supports an 8K context window by default.) Tj
+T* (Qingsong-14B and Qingsong-72B also ship 32K long-context versions.) Tj
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000129 00000 n 
+0000000257 00000 n 
+0000000327 00000 n 
+0000000813 00000 n 
+0000000941 00000 n 
+trailer
+<<
+/Size 8
+/Root 1 0 R
+>>
+startxref
+1326
+%%EOF

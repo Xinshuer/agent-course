@@ -1,0 +1,38 @@
+# 第 54 节：开发小组的三个任务（被 l54_dev_team_solution.py 和 l54_dev_team_todo.py 读取）
+# Lesson 54: the dev team's three tasks (read by l54_dev_team_solution.py and l54_dev_team_todo.py)
+# {game} 是占位符，运行时由 kickoff(inputs={"game": ...}) 填进游戏说明。
+# {game} is a placeholder, filled with the game description by kickoff(inputs={"game": ...}).
+# agent: 后面写的是 @agent 方法的名字。/ "agent:" names an @agent method.
+# 三个任务的 expected_output 都要求「只要代码」，这样结果才能直接存成 .py 文件。
+# All three ask for "code only", so the result can be saved straight into a .py file.
+
+code_task:
+  description: >
+    你要用 Python 写一个游戏，游戏说明如下：
+
+    {game}
+  expected_output: >
+    你的最终答案必须是完整的 Python 代码，只能是 Python 代码，不要任何解释，也不要用 ``` 把代码包起来。
+  agent: senior_engineer
+
+review_task:
+  description: >
+    你在协助用 Python 写一个游戏，游戏说明如下：
+
+    {game}
+
+    检查你拿到的代码：逻辑错误、语法错误、缺少的 import、没有定义的变量、不配对的括号，以及安全漏洞。发现问题就直接改好。
+  expected_output: >
+    你的最终答案必须是完整的 Python 代码，只能是 Python 代码，不要任何解释，也不要用 ``` 把代码包起来。
+  agent: qa_engineer
+
+evaluate_task:
+  description: >
+    你在协助用 Python 写一个游戏，游戏说明如下：
+
+    {game}
+
+    通读代码，确认它是完整的，并且真正实现了游戏说明里的每一项要求；缺什么就补上。
+  expected_output: >
+    你的最终答案必须是完整的 Python 代码，只能是 Python 代码，不要任何解释，也不要用 ``` 把代码包起来。
+  agent: chief_qa_engineer

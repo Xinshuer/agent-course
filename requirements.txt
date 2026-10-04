@@ -1,0 +1,23 @@
+# Main course environment (.venv, Python 3.12) - modules 1-8 (lessons 00-50).
+# Install (in the project folder): py -3.12 -m venv .venv
+#   then: .venv\Scripts\python.exe -m pip install -r requirements.txt
+openai==2.54.0
+httpx==0.28.1
+openai-agents==0.20.0
+mcp==1.30.0
+langchain==1.4.3
+langchain-core==1.6.6
+langchain-openai==1.6.7
+langchain-deepseek==1.1.1
+langchain-community==0.4.2
+langgraph==1.2.12
+langgraph-checkpoint-sqlite==3.1.1
+agentscope==2.0.9
+json_repair[schema]>=0.63.4
+fastapi==0.142.2
+uvicorn==0.54.0
+faiss-cpu
+greenlet
+fastembed
+rank_bm25
+deepseek_tokenizer==0.3.0

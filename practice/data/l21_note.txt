@@ -1,0 +1,6 @@
+第 21 节读取练习用的小文件 / A small file for the lesson 21 reading test
+
+AgentScope 的中间件有 7 个钩子：on_reply、on_reasoning、on_acting、on_model_call、
+on_check_permission、on_compress_context 和 on_system_prompt。
+AgentScope middleware has 7 hooks: on_reply, on_reasoning, on_acting, on_model_call,
+on_check_permission, on_compress_context and on_system_prompt.

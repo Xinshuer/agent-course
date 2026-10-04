@@ -1,0 +1,19 @@
+# 第 52 节：技术研究员案例的两个 Task（被 l52_research_crew.py 读取）
+# Lesson 52: the two tasks of the tech-researcher case (read by l52_research_crew.py)
+
+research_task:
+  description: >
+    研究 {topic} 的最新技术趋势，关注最新的技术进展，评估它们的优点和缺点，并给出详细的分析。
+    内容至少包括三部分：当前的趋势技术、这些技术的利弊、可能带来的影响。
+  expected_output: >
+    一个包含 5 个要点的中文列表，介绍 {topic} 的前沿动态和最新技术发展趋势，每点不超过 100 字。
+  agent: researcher
+
+reporting_task:
+  description: >
+    根据研究员提供的技术分析，写一份「{topic} 技术趋势报告」：结构清晰、有见解，
+    包括当前趋势、技术利弊、潜在影响和结论，适合行业读者阅读。
+    写完后必须调用 save_report 工具把报告保存成 PDF，filename 用「{topic}技术趋势报告」。
+  expected_output: >
+    save_report 工具返回的保存提示（告诉用户去哪里查看报告），不要再重复报告全文。
+  agent: reporting_writer
